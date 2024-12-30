@@ -1,0 +1,15 @@
+@import url('https://unpkg.com/@typehaus/metropolis');
+
+html,
+body {
+	background-color: transparent;
+	margin: 0;
+	padding: 0;
+	font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto,
+		'Helvetica Neue', Arial, sans-serif;
+}
+
+.widget-container {
+	height: 100%;
+	width: 100%;
+}
