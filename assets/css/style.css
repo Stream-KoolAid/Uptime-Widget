@@ -1,15 +1,166 @@
-@import url('https://unpkg.com/@typehaus/metropolis');
+:root {
+	/* Colors */
+	--color-bg-input: #2b3035;
+	--color-bg-toggle: #343a40;
+	--color-bg-section: rgba(255, 255, 255, 0.02);
+	--color-text-muted: #adb5bd;
+	--color-text-heading: #fff;
+	--color-border: rgba(255, 255, 255, 0.1);
 
-html,
-body {
-	background-color: transparent;
-	margin: 0;
-	padding: 0;
-	font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto,
-		'Helvetica Neue', Arial, sans-serif;
+	/* Spacing */
+	--spacing-xs: 0.5rem;
+	--spacing-sm: 1rem;
+	--spacing-md: 1.5rem;
+	--spacing-lg: 2rem;
+
+	/* Border Radius */
+	--radius-sm: 6px;
+	--radius-md: 8px;
+
+	/* Transitions */
+	--transition-base: 0.2s ease-in-out;
 }
 
-.widget-container {
-	height: 100%;
+/* Base Styles */
+.form-control,
+.form-select {
+	background-color: var(--color-bg-input);
+	border-color: var(--color-border);
+	transition: border-color var(--transition-base),
+		box-shadow var(--transition-base);
+}
+
+.form-control:focus,
+.form-select:focus {
+	border-color: var(--color-text-muted);
+	box-shadow: 0 0 0 0.2rem rgba(173, 181, 189, 0.25);
+}
+
+.btn-primary {
+	padding: var(--spacing-sm);
+	font-weight: 500;
+	transition: transform var(--transition-base);
+}
+
+.btn-primary:active {
+	transform: scale(0.98);
+}
+
+/* Preview Container */
+.preview-container {
+	position: sticky;
+	top: 20px;
+}
+
+.preview-frame {
 	width: 100%;
+	height: 250px;
+	border: none;
+	background: transparent;
+	border-radius: var(--radius-sm);
+}
+
+/* Settings Sections */
+.settings-section {
+	background: var(--color-bg-section);
+	border-radius: var(--radius-md);
+	padding: var(--spacing-lg);
+	margin-bottom: var(--spacing-lg);
+	border: 1px solid var(--color-border);
+}
+
+.settings-title {
+	font-size: 1.25rem;
+	font-weight: 600;
+	margin-bottom: var(--spacing-md);
+	color: var(--color-text-heading);
+	display: flex;
+	align-items: center;
+	gap: var(--spacing-xs);
+}
+
+.settings-title i {
+	opacity: 0.8;
+}
+
+.form-group {
+	margin-bottom: var(--spacing-md);
+}
+
+.form-label {
+	margin-bottom: var(--spacing-xs);
+	font-weight: 500;
+	color: var(--color-text-muted);
+}
+
+/* Settings Toggle */
+.settings-toggle {
+	background: var(--color-bg-toggle);
+	padding: var(--spacing-sm) var(--spacing-md);
+	border-radius: var(--radius-md);
+	margin-bottom: var(--spacing-lg);
+	border: 1px solid var(--color-border);
+}
+
+.form-switch {
+	padding-left: 3.5rem;
+}
+
+.form-switch .form-check-input {
+	width: 3em;
+	height: 1.5em;
+	margin-left: -3.5rem;
+	transition: background-color var(--transition-base);
+}
+
+.form-switch .form-check-label {
+	font-weight: 500;
+	padding-top: 0.25rem;
+}
+
+/* Result URL */
+.result-url {
+	background: var(--color-bg-input);
+	border-radius: var(--radius-sm);
+	padding: var(--spacing-sm);
+	color: var(--color-text-muted);
+	font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+	margin: var(--spacing-sm) 0;
+	word-break: break-all;
+	border: 1px solid var(--color-border);
+}
+
+/* Helper Text */
+.form-text {
+	font-size: 0.875rem;
+	color: var(--color-text-muted);
+	margin-top: 0.25rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+	.settings-section {
+		padding: var(--spacing-md);
+	}
+}
+
+/* Animation for Settings Sections */
+#stylingSettings {
+	display: none;
+	animation: fadeIn var(--transition-base);
+}
+
+#stylingSettings[aria-expanded='true'] {
+	display: block;
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(-10px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
 }
